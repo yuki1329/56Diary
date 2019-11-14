@@ -52,4 +52,14 @@ class DiaryController extends Controller
         return redirect()->route('diary.index');
 
     }
+    // 日記を削除するためのメソッド
+    public function destroy(int $id)
+    {
+        // Diaryモデルを使用して、IDが一致する日記の取得
+        $diary = Diary::find($id);
+        //取得した日記の削除
+        $diary->delete();
+        //一覧画面にリダイレクト
+        return redirect()->route('diary.index');
+    }
 }
