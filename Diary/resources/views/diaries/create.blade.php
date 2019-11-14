@@ -26,6 +26,7 @@
             @endif
 
             <form action="{{ route('diary.store') }}" method="POST">
+            <!-- 外部からのアクセス をされないためにするもの 勝手にトークンが生成されてそのトークンがなかったり書き換えられていたらエラーが出るようにする -->
             @csrf
             <div class="form-group">
 
