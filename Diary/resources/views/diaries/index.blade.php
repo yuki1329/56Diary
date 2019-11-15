@@ -9,6 +9,8 @@
    <p>{{$diary->title}}</p>
    <p>{{$diary->body}}</p>
    <p>{{$diary->created_at}}</p>
+   {{-- edit --}}
+   <a href="{{route('diary.edit',['id' =>$diary->id])}}"  class="btn btn-success">編集</a>
 <!-- //delete -->
 <form action="{{ route('diary.destroy',['id' => $diary->id]) }}" method="POST" class="d-inline">
 @csrf
