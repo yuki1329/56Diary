@@ -21,5 +21,5 @@ Route::post('/diary/store','DiaryController@store')->name('diary.store');  //自
  //delete.blade.php
 Route::delete('/diary/{id}','DiaryController@destroy')->name('diary.destroy');
  //edit.blade.php
-Route::get('/diary/{id}/edit','DiaryController@edit')->name('diary.edit');
+Route::get('/diary/{diary}/edit','DiaryController@edit')->name('diary.edit');
 Route::put('/diary/{id}/update','DiaryController@update')->name('diary.update');

@@ -63,10 +63,10 @@ class DiaryController extends Controller
         return redirect()->route('diary.index');
     }
     //編集画面を表示する
-    public function edit(int $id)
+    public function edit(Diary $diary)
     {
         //受け取ったIDを元に日記を取得
-        $diary= Diary::find($id);
+        // $diary= Diary::find($id);
         //編集画面を返す。同時に画面に取得した日記を渡す。
 
         return view('diaries.edit',[

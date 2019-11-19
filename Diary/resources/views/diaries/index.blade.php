@@ -9,15 +9,19 @@
    <p>{{$diary->title}}</p>
    <p>{{$diary->body}}</p>
    <p>{{$diary->created_at}}</p>
+   {{-- Auth::check() : ログインしていたらtrue,他はfalse --}}
+   @if (Auth::check() && $diary->user_id == Auth::user()->id)
+
    {{-- edit --}}
    <a href="{{route('diary.edit',['id' =>$diary->id])}}"  class="btn btn-success">編集</a>
 <!-- //delete -->
-<form action="{{ route('diary.destroy',['id' => $diary->id]) }}" method="POST" class="d-inline">
-@csrf
-@method('delete')
-<button class="btn btn-danger">削除</button>
+   <form action="{{ route('diary.destroy',['id' => $diary->id]) }}" method="POST" class="d-inline">
+   @csrf
+   @method('delete')
+   <button class="btn btn-danger">削除</button>
 </form>
 
+   @endif
    </div>
    @endforeach
 
