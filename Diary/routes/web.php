@@ -21,6 +21,7 @@ Auth::routes();
 Route::group(['middleware'=>['auth']],function()
 {
   //この中に書かれたルートはログインしないと見れなくなる
+
   Route::get('/diary/create','DiaryController@create')->name('diary.create');
 Route::post('/diary/store','DiaryController@store')->name('diary.store');  //自分のすきな名前を入れていいよ
  //delete.blade.php
@@ -28,4 +29,6 @@ Route::delete('/diary/{id}','DiaryController@destroy')->name('diary.destroy');
  //edit.blade.php
 Route::get('/diary/{diary}/edit','DiaryController@edit')->name('diary.edit');
 Route::put('/diary/{id}/update','DiaryController@update')->name('diary.update');
+Route::post('/diary/{id}/like','DiaryController@like')->name('diary.like');
+Route::post('/diary/{id}/dislike','DiaryController@dislike')->name('diary.dislike');
 });

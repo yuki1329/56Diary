@@ -109,4 +109,16 @@ class DiaryController extends Controller
         //一覧ページにリダイレクト
         return redirect()->route('diary.index');
     }
+    // いいねが押された時の処理
+    public function like(int $id)
+    {
+        //いいねされた日記の取得
+        $diary = Diary::find($id);
+        $diary->likes()->attach(Auth::user()->id);
+    }
+    //いいね解除が押された時の処理
+    public function dislike()
+    {
+
+    }
 }
